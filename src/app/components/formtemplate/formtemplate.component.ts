@@ -2,9 +2,14 @@ import { Component, OnInit } from '@angular/core';
 
 // creacion de interface, llave y tipo de dato
 interface IregisterForm {
+  dni: String;
   nombre: String;
-  email: String;
-  mensaje: String;
+  direccion: String;
+  edad: String;
+  celular: String;
+  cargo: String;
+  sexo: String;
+  sueldo: String;
 }
 
 @Component({
@@ -15,17 +20,27 @@ interface IregisterForm {
 export class FormtemplateComponent implements OnInit {
 
   user: IregisterForm = {
+    dni: "",
     nombre: "",
-    email: "",
-    mensaje: ""
+    direccion: "",
+    edad: "",
+    celular: "",
+    cargo: "",
+    sexo: "",
+    sueldo: ""
   }
 
   submit() {
     console.log("Datos del vehiculo");
     console.log(
+      this.user.dni,
       this.user.nombre,
-      this.user.email,
-      this.user.mensaje,
+      this.user.direccion,
+      this.user.edad,
+      this.user.celular,
+      this.user.cargo,
+      this.user.sexo,
+      this.user.sueldo
     );
 
   }
