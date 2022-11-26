@@ -5,7 +5,7 @@ interface IregisterForm {
   dni: String;
   nombre: String;
   direccion: String;
-  edad: String;
+  edad: String | Number;
   celular: String;
   cargo: String;
   sexo: String;
@@ -42,6 +42,7 @@ export class FormtemplateComponent implements OnInit {
       this.user.sexo,
       this.user.sueldo
     );
+    console.log(this.user);
 
   }
 
