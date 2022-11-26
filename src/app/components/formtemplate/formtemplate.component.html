@@ -1,0 +1,55 @@
+<div class="container">
+  <form (ngSubmit)="submit()" #forma="ngForm" class="d-flex flex-column border p-5">
+    <h1 class="text-center">VEHICULOS</h1>
+    <label for="placa">
+      <b>Placa:</b>
+      <input type="text" name="placa" id="placa" #placa="ngModel" [(ngModel)]="register.placa"
+        placeholder="Introducir placa" class="form-control" required maxlength="7"
+        [ngClass]="{'is-valid':!placa.invalid,'is-invalid':placa.invalid}">
+    </label>
+
+    <label for="marca">
+      <b>Marca:</b>
+      <input type="text" name="marca" id="marca" #marca="ngModel" [(ngModel)]="register.marca"
+        placeholder="Introducir marca" class="form-control" required
+        [ngClass]="{'is-valid':!marca.invalid,'is-invalid':marca.invalid}">
+    </label>
+
+    <label for="modelo">
+      <b>Modelo:</b>
+      <input type="text" name="modelo" id="modelo" #modelo="ngModel" [(ngModel)]="register.modelo"
+        placeholder="Introducir modelo" class="form-control" required maxlength="6"
+        [ngClass]="{'is-valid':!modelo.invalid,'is-invalid':modelo.invalid}">
+    </label>
+
+    <label for="precio">
+      <b>Precio:</b>
+      <input type="number" name="precio" id="precio" #precio="ngModel" [(ngModel)]="register.precio"
+        placeholder="Introducir precio" class="form-control" required maxlength="6" min="1"
+        [ngClass]="{'is-valid':!precio.invalid,'is-invalid':precio.invalid}">
+    </label>
+
+    <label for="color">
+      <b>Color:</b>
+      <input type="text" name="color" id="color" #color="ngModel" [(ngModel)]="register.color"
+        placeholder="Introducir color" class="form-control" required maxlength="6"
+        [ngClass]="{'is-valid':!color.invalid,'is-invalid':color.invalid}">
+    </label>
+
+    <label for="fabricacion">
+      <b>Fabricacion:</b>
+      <input type="date" name="fabricacion" id="fabricacion" #fabricacion="ngModel" [(ngModel)]="register.fabricacion"
+        placeholder="Introducir fabricacion" class="form-control" required maxlength="10"
+        [ngClass]="{'is-valid':!fabricacion.invalid,'is-invalid':fabricacion.invalid}">
+    </label>
+    <input type="submit" class="btn btn-success d-block m-auto mt-5" value="Enviar">
+  </form>
+</div>
+<div>
+  <p> {{placa.value}}</p>
+  <p> {{marca.value}}</p>
+  <p> {{modelo.value}}</p>
+  <p> {{precio.value}}</p>
+  <p> {{color.value}}</p>
+  <p> {{fabricacion.value}}</p>
+</div>
