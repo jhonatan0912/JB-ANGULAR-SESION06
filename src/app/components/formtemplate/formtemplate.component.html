@@ -4,31 +4,30 @@
 
 
     <label for="nombre">
-      <b>nombre:</b>
+      <b>Nombre:</b><span></span>
       <input type="text" name="nombre" id="nombre" #nombre="ngModel" [(ngModel)]="user.nombre"
         placeholder="Introducir nombre" class="form-control" required minlength="10"
         [ngClass]="{'is-valid':!nombre.invalid,'is-invalid':nombre.invalid}">
+      <span *ngIf="user.nombre.length<10">Debe contener como mínimo 10 caracteres</span>
     </label>
 
     <label for="email">
-      <b>email:</b>
+      <b>Email:</b>
       <input type="email" name="email" id="email" #email="ngModel" [(ngModel)]="user.email"
-        placeholder="Introducir email" class="form-control" required maxlength="6" min="1"
+        placeholder="Introducir email" class="form-control" required
         [ngClass]="{'is-valid':!email.invalid,'is-invalid':email.invalid}">
+      <span *ngIf="validEmail.errors.email">El email no es valido</span>
     </label>
 
-    <!-- <label for="mensaje">
-      <b>mensaje:</b>
-      <input type="text" name="mensaje" id="mensaje" #mensaje="ngModel" [(ngModel)]="user.mensaje"
-        placeholder="Introducir mensaje" class="form-control" required maxlength="6" min="1"
-        [ngClass]="{'is-valid':!mensaje.invalid,'is-invalid':mensaje.invalid}">
-    </label> -->
     <label for="mensaje" class="d-flex flex-column">
       <b>Mensaje</b>
       <textarea name="mensaje" cols="30" rows="10" #mensaje="ngModel" [(ngModel)]="user.mensaje"
-        [ngClass]="{'is-valid':!mensaje.invalid,'is-invalid':mensaje.invalid}" maxlength="500"></textarea>
+        [ngClass]="{'is-valid':!mensaje.invalid,'is-invalid':mensaje.invalid}" maxlength="500" class="rounded"
+        required></textarea>
+      <p *ngIf="validMessage.errors.required">El mensaje no puede quedar vacío</p>
     </label>
 
+    <p>Todos los datos son válidos</p>  
     <button type="submit" class="btn btn-success d-block m-auto mt-5">Enviar</button>
 
   </form>

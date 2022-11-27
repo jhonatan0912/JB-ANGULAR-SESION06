@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 // creacion de interface, llave y tipo de dato
 interface IregisterForm {
@@ -20,14 +21,14 @@ export class FormtemplateComponent implements OnInit {
     mensaje: ""
   }
 
+  control: any;
+  validEmail: any
+  validMessage: any
   submit() {
-    console.log("Datos del vehiculo");
-    console.log(
-      this.user.nombre,
-      this.user.email,
-      this.user.mensaje,
-    );
-
+    this.validEmail = this.control = new FormControl(this.user.email, Validators.email);
+    this.control = new FormControl(this.user.nombre, Validators.required);
+    this.control = new FormControl(this.user.email, Validators.required);
+    this.validMessage = this.control = new FormControl(this.user.mensaje, Validators.required);
   }
 
   constructor() { }
